@@ -76,10 +76,12 @@ namespace Calculadora
                         if (op != '(') Expressao += op;
                     }
 
+                    valorAEsquerda = false;
+
                     if (c != ')')   // ) não deve aparecer na sequência
                         pilhaSimbolos.Push(c);
-
-                    valorAEsquerda = false;
+                    else 
+                        valorAEsquerda = true;                    
                 }
             }
 
