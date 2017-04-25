@@ -28,12 +28,12 @@ namespace Calculadora
         /// Lista de relação de uma letra e um double representando os valores que aparecem na sequência
         /// e a letra que os representa
         /// </summary>
-        public Dictionary<char, double> Valores { get; private set; } = new Dictionary<char, double>();
+        public Dictionary<char, double> Valores { get; private set; }
 
         /// <summary>
         /// Sequência com os valores trocados por letras
         /// </summary>
-        public string Expressao { get; private set; } = "";
+        public string Expressao { get; private set; }
 
         /// <summary>
         /// Construtor
@@ -42,6 +42,8 @@ namespace Calculadora
         public SequenciaPosfixa(SequenciaInfixa infixa)
         {
             Valores = infixa.Valores;
+            Expressao = "";
+
             Stack<char> pilhaSimbolos = new Stack<char>();
             bool valorAEsquerda = false;
 
@@ -74,6 +76,8 @@ namespace Calculadora
                     {
                         char op = pilhaSimbolos.Pop();
                         if (op != '(') Expressao += op;
+                        else if (c == ')')
+                            break;
                     }
 
                     valorAEsquerda = false;

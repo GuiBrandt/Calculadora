@@ -13,12 +13,12 @@ namespace Calculadora
         /// Lista de relação de uma letra e um double representando os valores que aparecem na sequência
         /// e a letra que os representa
         /// </summary>
-        public Dictionary<char, double> Valores { get; private set; } = new Dictionary<char, double>();
+        public Dictionary<char, double> Valores { get; private set; }
 
         /// <summary>
         /// Sequência com os valores trocados por letras
         /// </summary>
-        public string Expressao { get; private set; } = "";
+        public string Expressao { get; private set; }
 
         /// <summary>
         /// Construtor
@@ -28,6 +28,9 @@ namespace Calculadora
         /// <exception cref="Exception">Caso a sequência tenha mais valores do que tem letras no alfabeto</exception>
         public SequenciaInfixa(string sequencia)
         {
+            Valores = new Dictionary<char, double>();
+            Expressao = "";
+
             string valor = "";
 
             // Percorre todos os caracteres na sequência até um depois do último
